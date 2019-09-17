@@ -5,6 +5,12 @@ const listMovies = () => ({
   payload: movies
 })
 
+const deleteM = movie => ({
+  type: "DELETE_MOVIE",
+  payload: movie
+});
+
 export {
-  listMovies
+  listMovies,
+  deleteM
 };

@@ -6,10 +6,26 @@
   color: white;
   box-sizing: border-box;
   font-size: 1.25em;
+  display: flex;
+  align-items: center;
 }
 
 .app-main-container {
   margin: 32px;
+}
+
+.Button {
+  border: 0;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  background: white;
+  margin: 0.5rem;
+}
+
+.Input, .Select {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .Movies {
@@ -30,4 +46,37 @@
 
 .Image {
   width: 100%;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+}
+
+.MovieModal {
+  width: 50%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.MovieDetails {
+  padding: 1rem 0.5rem 2rem 0.5rem;
+  background: white;
+}
+
+.Item {
+  padding: 0.5rem;
+}
+
+.Item:not(:last-child)::after {
+  content: ", ";
+  white-space: pre;
 }
