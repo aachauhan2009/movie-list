@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { deleteM } from "../actions/index";
+import { stat } from 'fs';
 
 const Movie = ({
   name,
@@ -75,8 +76,14 @@ class Movies extends React.Component {
   }
 }
 
+const moviesSelector = state => {
+  const movies = state.movies;
+  const search = state.search;
+  return search ? movies.filter(({ name = "" }) => name.toLowerCase().includes(search.toLowerCase())) : movies;
+}
+
 const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: moviesSelector(state) 
 });
 
 const mapDispatchToProps = (dispatch) => ({

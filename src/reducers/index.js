@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
 
+const search = (state = "", action) => {
+    switch(action.type) {
+        case "SEARCH_MOVIE": return action.payload;
+        default: return state;
+    }
+}
+
 const movies = (state = [], action) => {
     switch(action.type) {
         case "LIST_MOVIES": return action.payload;
@@ -9,5 +16,6 @@ const movies = (state = [], action) => {
 }
 
 export default combineReducers({
-    movies
+    movies,
+    search
 });

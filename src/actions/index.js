@@ -10,7 +10,13 @@ const deleteM = movie => ({
   payload: movie
 });
 
+const updateSearch = keyword => ({
+  type: "SEARCH_MOVIE",
+  payload: keyword
+});
+
 export {
   listMovies,
-  deleteM
+  deleteM,
+  updateSearch
 };
