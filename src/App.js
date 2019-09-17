@@ -1,13 +1,15 @@
 import React from 'react';
+import Header from "./components/Header";
+import Movies from "./components/Movies";
 import './App.css';
 
 const App = () => (
   <div>
     <header className="app-header">
-      <span>Movie List</span>
+      <Header />
     </header>
     <section className="app-main-container">
-      Display movie list here
+      <Movies />
     </section>
   </div>
 );
