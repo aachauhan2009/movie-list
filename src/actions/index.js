@@ -15,8 +15,14 @@ const updateSearch = keyword => ({
   payload: keyword
 });
 
+const updateFilter = year => ({
+  type: "FILTER_MOVIE",
+  payload: year
+});
+
 export {
   listMovies,
   deleteM,
-  updateSearch
+  updateSearch,
+  updateFilter
 };

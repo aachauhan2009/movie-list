@@ -79,7 +79,8 @@ class Movies extends React.Component {
 const moviesSelector = state => {
   const movies = state.movies;
   const search = state.search;
-  return search ? movies.filter(({ name = "" }) => name.toLowerCase().includes(search.toLowerCase())) : movies;
+  const selectedYear = state.filter.year;
+  return (search || selectedYear) ? movies.filter(({ name = "", releaseYear }) => (releaseYear == selectedYear && name.toLowerCase().includes(search.toLowerCase()))) : movies;
 }
 
 const mapStateToProps = (state) => ({

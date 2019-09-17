@@ -12,7 +12,7 @@
         "description": "This is description for movie 2",
         "image": "https://cdn.pixabay.com/photo/2019/05/19/10/41/cinema-4213756_960_720.jpg",
         "cast": ["Some Actor", "Actress", "Support"],
-        "releaseYear": 2000,
+        "releaseYear": 2001,
         "genre": ["Drama", "Action"]
     },
     {

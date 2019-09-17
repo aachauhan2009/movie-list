@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { listMovies, updateSearch } from "../actions/index";
+import { listMovies, updateSearch, updateFilter } from "../actions/index";
 
-const Header = ({ listMovies, search, updateSearch }) => {
+const Header = ({ listMovies, search, updateSearch, years, applyFilter }) => {
   return <React.Fragment>
     <button className="Button" onClick={listMovies}>
       List Movies
@@ -11,9 +11,9 @@ const Header = ({ listMovies, search, updateSearch }) => {
       <label htmlFor="filter">
         Filter
       </label>
-      <select id="filter" className="Select">
-        <option selected disabled> Select Year </option>
-        <option> 2004 </option>
+      <select id="filter" className="Select" onChange={e => applyFilter(e.target.value)}>
+        <option selected value=""> Select Year </option>
+        {years.map(year => <option value={year}> {year} </option>)}
       </select>
     </div>
 
@@ -24,13 +24,21 @@ const Header = ({ listMovies, search, updateSearch }) => {
   </React.Fragment>
 };
 
+const yearsSelector = state => {
+  return state.movies.reduce((years, { releaseYear }) => {
+    return years.includes(releaseYear) ? years : [...years, releaseYear];
+  }, []);
+}
+
 const mapStateToProps = (state) => ({
-  search: state.search
+  search: state.search,
+  years: yearsSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   listMovies: () => dispatch(listMovies()),
-  updateSearch: v => dispatch(updateSearch(v))
+  updateSearch: v => dispatch(updateSearch(v)),
+  applyFilter: v => dispatch(updateFilter(v))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
